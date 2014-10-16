@@ -1,0 +1,19 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>apache-camel-tutorial</groupId>
+	<artifactId>apache-camel-tutorial</artifactId>
+	<packaging>pom</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<name>Apache Camel tutorial</name>
+
+	<modules>
+		<module>camel-tutorial1</module>
+		<module>camel-tutorial2-activemq-receive</module>
+		<module>camel-tutorial2-activemq-receive-spring</module>
+		<module>camel-tutorial2-activemq-send</module>
+		
+	</modules>
+
+</project>
