@@ -13,7 +13,11 @@
 		<module>camel-tutorial2-activemq-receive</module>
 		<module>camel-tutorial2-activemq-receive-spring</module>
 		<module>camel-tutorial2-activemq-send</module>
-		
+		<module>camel-tutorial3-synchronous-msg</module>
+		<module>camel-tutorial4-synchronous-pojo-json</module>
+		<module>camel-tutorial5-synchronous-rest-client</module>
+		<module>camel-tutorial5-synchronous-rest-server</module>
+
 	</modules>
 
 </project>

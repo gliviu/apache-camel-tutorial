@@ -34,5 +34,7 @@ public class SendMessageCamel {
 		pt.sendBody("test-jms:testMQ", "Hello World Camel");
 
 		System.out.println("Message sent");
+
+        context.stop();
 	}
 }

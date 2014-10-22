@@ -24,7 +24,7 @@ public class App {
 		context.addRoutes(new RouteBuilder() {
 			@Override
 			public void configure() throws Exception {
-				from("file://c:/tmp/00/camelSourceFolder").convertBodyTo(String.class).to("bean:log").to("file://c:/tmp/00/camelDestFolder");
+				from("file://c:/Windows/Temp/camelSourceFolder").convertBodyTo(String.class).to("bean:log").to("file://c:/Windows/Temp/camelDestFolder");
 			}
 		});
 		context.setTracing(true);
