@@ -31,7 +31,6 @@ public class App {
 				from("direct:process2").to("bean:processor2");
 			}
 		});
-		context.setTracing(true);
 		context.start();
 
 		ProducerTemplate pt;

@@ -41,7 +41,6 @@ public class App {
 				
 			}
 		});
-		context.setTracing(true);
 		context.start();
 
 

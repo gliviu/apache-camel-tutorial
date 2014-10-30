@@ -27,7 +27,6 @@ public class App {
 				from("file://c:/Windows/Temp/camelSourceFolder").convertBodyTo(String.class).to("bean:log").to("file://c:/Windows/Temp/camelDestFolder");
 			}
 		});
-		context.setTracing(true);
 		context.start();
 
 		try {

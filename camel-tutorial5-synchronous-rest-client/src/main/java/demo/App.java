@@ -41,7 +41,6 @@ public class App {
 						.unmarshal().json(JsonLibrary.Jackson, Boolean.class);
 			}
 		});
-		context.setTracing(true);
 		context.start();
 
 		ProducerTemplate pt;

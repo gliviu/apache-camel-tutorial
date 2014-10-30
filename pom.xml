@@ -17,7 +17,8 @@
 		<module>camel-tutorial4-synchronous-pojo-json</module>
 		<module>camel-tutorial5-synchronous-rest-client</module>
 		<module>camel-tutorial5-synchronous-rest-server</module>
-
+		<module>camel-tutorial6-synchronous-activemq-client</module>
+		<module>camel-tutorial6-synchronous-activemq-server</module>
 	</modules>
 
 </project>

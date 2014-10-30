@@ -39,7 +39,6 @@ public class App {
 						.json(JsonLibrary.Jackson);
 			}
 		});
-		context.setTracing(true);
 		context.start();
 
 		LOG.info("Server started. Waiting for connections");

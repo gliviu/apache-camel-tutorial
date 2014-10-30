@@ -2,10 +2,9 @@ package demo;
 
 import javax.jms.ConnectionFactory;
 
-import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
+import org.apache.activemq.broker.BrokerService;
 import org.apache.camel.CamelContext;
-import org.apache.camel.Message;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.jms.JmsComponent;
 import org.apache.camel.impl.DefaultCamelContext;
@@ -14,25 +13,24 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Receives JMS messages and logs them. 
- * See http://www.pretechsol.com/2013/08/apache-camel-activemq-exampe.html 
- * 1. Start Activemq Messaging System 
- * 		1. Download activemq from http://activemq.apache.org/download-archives.html 
- * 		2. Extract activemq zip file and start ActiveMQ (Click on activemq.bat file for windows) 
- * 		3. Check activemq console using http://localhost:8161/admin (Use default credentials admin/admin to login) 
- * 2. Use camel-tutorial2-activemq-send to submit messages
+ * Synchronous jms message service. 
  */
 public class App {
+	private static final String SERVER_ADDRESS = "tcp://localhost:60000";
 	static Logger LOG = LoggerFactory.getLogger(App.class);
 
 	public static void main(String[] args) throws Exception {
+		
+		// create JMS server
+		startServer();
+		
 		final CamelContext context = new DefaultCamelContext();
 		SimpleRegistry registry = new SimpleRegistry();
 		((DefaultCamelContext) context).setRegistry(registry);
-		registry.put("log", new MsgLogger());
+		registry.put("service", new Service());
 
 		ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(
-				"admin", "admin", ActiveMQConnection.DEFAULT_BROKER_URL);
+				"admin", "admin", SERVER_ADDRESS);
 		context.addComponent("test-jms",
 				JmsComponent.jmsComponentAutoAcknowledge(connectionFactory));
 
@@ -40,7 +38,7 @@ public class App {
 			@Override
 			public void configure() throws Exception {
 				from("test-jms:testMQ").convertBodyTo(String.class).to(
-						"bean:log");
+						"bean:service");
 			}
 		});
 		context.start();
@@ -48,9 +46,23 @@ public class App {
 		Thread.sleep(Long.MAX_VALUE);
 	}
 
-	public static class MsgLogger {
-		public void process(Message msg) throws Exception {
-			LOG.info("Logger: {}", msg);
+	private static void startServer() {
+        try {
+            //This message broker is embedded
+            BrokerService broker = new BrokerService();
+            broker.setPersistent(false);
+            broker.setUseJmx(false);
+            broker.addConnector(SERVER_ADDRESS);
+            broker.start();
+        } catch (Exception e) {
+            LOG.error("JMS server error: ", e);
+        }
+	}
+
+	public static class Service {
+		public String service1(String str) throws Exception {
+			LOG.info("Received: {}", str);
+			return "service1 response";
 		}
 
 	}
