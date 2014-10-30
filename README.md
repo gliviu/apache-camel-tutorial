@@ -3,6 +3,8 @@ apache-camel-tutorial
 
 Collection of getting started tutorials for Apache Camel.
 
+Run each tutorial using the `mvn compile exec...` command from the root folder of git project.
+
 * camel-tutorial1
 	* start with camel and a simple java app
 	* moves files from source to destination folder; logs transferred information
@@ -38,3 +40,9 @@ Collection of getting started tutorials for Apache Camel.
 * camel-tutorial5-synchronous-rest-client
 	* Calls the service exposed by camel-tutorial5-synchronous-rest-server
 	* run: `mvn compile exec:java -pl camel-tutorial5-synchronous-rest-client -Dexec.mainClass="demo.App"`
+* camel-tutorial6-synchronous-activemq-server
+	* Creates a JMS server and responds synchronously to requests using technique described [here](http://activemq.apache.org/how-should-i-implement-request-response-with-jms.html)
+	* run: `mvn compile exec:java -pl camel-tutorial6-synchronous-activemq-server -Dexec.mainClass="demo.App"`
+* camel-tutorial6-synchronous-activemq-client
+	* Calls the service exposed by camel-tutorial6-synchronous-activemq-server
+	* run: `mvn compile exec:java -pl camel-tutorial6-synchronous-activemq-client -Dexec.mainClass="demo.SendMessageCamel"`
