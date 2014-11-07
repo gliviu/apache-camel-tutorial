@@ -19,6 +19,7 @@
 		<module>camel-tutorial5-synchronous-rest-server</module>
 		<module>camel-tutorial6-synchronous-activemq-client</module>
 		<module>camel-tutorial6-synchronous-activemq-server</module>
+		<module>camel-tutorial7-activemq-publish-subscribe</module>
 	</modules>
 
 </project>

@@ -32,7 +32,7 @@ public class App {
 		registry.put("log", new MsgLogger());
 
 		ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(
-				"admin", "admin", ActiveMQConnection.DEFAULT_BROKER_URL);
+				"admin", "admin", "tcp://localhost:61616");
 		context.addComponent("test-jms",
 				JmsComponent.jmsComponentAutoAcknowledge(connectionFactory));
 

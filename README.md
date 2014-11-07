@@ -12,9 +12,8 @@ Run each tutorial using the `mvn compile exec...` command from the root folder o
 	* more info at [Getting started with Apache Camel using Java](http://saltnlight5.blogspot.ro/2013/08/getting-started-with-apache-camel-using.html)
 	* run: `mvn compile exec:java -pl camel-tutorial1 -Dexec.mainClass="demo.App"`
 * camel-tutorial2-activemq-receive
-	* Install and start ActiveMq server using instructions at [Apache Camel + ActiveMQ Example](http://www.pretechsol.com/2013/08/apache-camel-activemq-exampe.html)
+	* Start ActiveMq server using instructions at [Apache Camel + ActiveMQ Example](http://www.pretechsol.com/2013/08/apache-camel-activemq-exampe.html)
 	* start this sample to receive messages dispatched by camel-tutorial2-activemq-send
-	* see [Apache Camel + ActiveMQ Example](http://www.pretechsol.com/2013/08/apache-camel-activemq-exampe.html) for explanations
 	* leave this started before attempting following sample
 	* run: `mvn compile exec:java -pl camel-tutorial2-activemq-receive -Dexec.mainClass="demo.App"`
 * camel-tutorial2-activemq-send
@@ -46,3 +45,8 @@ Run each tutorial using the `mvn compile exec...` command from the root folder o
 * camel-tutorial6-synchronous-activemq-client
 	* Calls the service exposed by camel-tutorial6-synchronous-activemq-server
 	* run: `mvn compile exec:java -pl camel-tutorial6-synchronous-activemq-client -Dexec.mainClass="demo.SendMessageCamel"`
+* camel-tutorial7-publish-subscribe
+	* Demonstrates jms publish - subscribe mechanism using virtual topics
+	* See [here](https://www.packtpub.com/books/content/using-virtual-destinations-advanced) for info 
+	* run `mvn compile exec:java -pl camel-tutorial7-activemq-publish-subscribe -Dexec.mainClass="demo.Subscriber"` to activate the jms server and subscribe to the publisher which will be started next.
+	* run `mvn compile exec:java -pl camel-tutorial7-activemq-publish-subscribe -Dexec.mainClass="demo.Publisher"` to publish messages
